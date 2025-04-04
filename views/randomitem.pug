@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1 A Random Item
+  p Here are some random items:
+
+  - var image_names = ['item1.jpeg', 'item2.jpeg', 'item3.jpeg', 'item4.jpeg', 'item5.jpeg'];
+
+  div
+    - for (var i = 0; i < 3; i++)
+      - var randomIndex = Math.floor(Math.random() * 5);
+      img(
+        src=`/images/${image_names[randomIndex]}`, 
+        alt=`Random Item ${i+1}`, 
+        width="300", height="300", 
+        style="margin:10px; border:2px solid black; cursor:pointer;",
+        onclick=`buy(${randomIndex})`
+      )
+
+  script.
+    function buy(index) {
+      alert("You purchased item " + index);
+    }
