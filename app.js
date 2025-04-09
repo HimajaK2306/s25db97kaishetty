@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var quarriesRouter = require('./routes/quarries');
 var gridRouter = require('./routes/grid');
 var pickRouter = require('./routes/pick');
+var quarries = require("./models/quarries");
 var app = express();
 
 
@@ -22,8 +23,43 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+require('dotenv').config();
+const connectionString = process.env.MONGO_CON
+mongoose = require('mongoose');
+mongoose.connect(connectionString);
 
+// We can seed the collection if needed on server start
+async function recreateDB(){
+// Delete everything
+await quarries.deleteMany();
+let instance1 = new
+quarries({name:"Granite Hills", depth_meters:'50',
+material:"Granite"});
+instance1.save().then(doc=>{
+console.log("First object saved")}
+).catch(err=>{
+console.error(err)
+});
+let instance2 = new
+quarries({name:"Limestone Cove", depth_meters:'30',
+material:"Limestone"});
+instance2.save().then(doc=>{
+console.log("First object saved")}
+).catch(err=>{
+console.error(err)
+});
 
+let instance3 = new
+quarries({name:"Marble Valley", depth_meters:'45',
+material:"Marble"});
+instance3.save().then(doc=>{
+console.log("First object saved")}
+).catch(err=>{
+console.error(err)
+});
+}
+let reseed = true;
+if (reseed) {recreateDB();}
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -61,6 +97,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once("open", function(){
+console.log("Connection to DB succeeded")});
 
 module.exports = app;
 
