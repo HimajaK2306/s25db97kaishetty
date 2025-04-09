@@ -44,7 +44,7 @@ let instance2 = new
 quarries({name:"Limestone Cove", depth_meters:'30',
 material:"Limestone"});
 instance2.save().then(doc=>{
-console.log("First object saved")}
+console.log("Second object saved")}
 ).catch(err=>{
 console.error(err)
 });
@@ -53,7 +53,7 @@ let instance3 = new
 quarries({name:"Marble Valley", depth_meters:'45',
 material:"Marble"});
 instance3.save().then(doc=>{
-console.log("First object saved")}
+console.log("Third object saved")}
 ).catch(err=>{
 console.error(err)
 });
