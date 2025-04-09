@@ -10,6 +10,7 @@ var quarriesRouter = require('./routes/quarries');
 var gridRouter = require('./routes/grid');
 var pickRouter = require('./routes/pick');
 var quarries = require("./models/quarries");
+var resourceRouter = require("./models/resource");
 var app = express();
 
 
@@ -66,6 +67,7 @@ app.use('/users', usersRouter);
 app.use('/quarries', quarriesRouter);
 app.use('/grid', gridRouter);
 app.use('/pick', pickRouter);
+app.use('/resource', resourceRouter);
 
 app.get('/gridbuild', function(req, res) {
   let query = req.query;

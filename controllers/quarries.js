@@ -1,4 +1,4 @@
-var Costume = require('../models/costume');
+var Costume = require('../models/quarries');
 // List of all Costumes
 exports.quarries_list = function(req, res) {
 res.send('NOT IMPLEMENTED: quarries list');
