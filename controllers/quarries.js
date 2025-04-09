@@ -29,3 +29,15 @@ res.send('NOT IMPLEMENTED: quarries delete DELETE ' + req.params.id);
 exports.quarries_update_put = function(req, res) {
 res.send('NOT IMPLEMENTED: quarries update PUT' + req.params.id);
 };
+//VIEWS
+// Handle a show all view
+exports.costume_view_all_Page = async function(req, res) {
+try{
+thequarries = await quarries.find();
+res.render('quarries', { title: 'quarries Search Results', results: thequarries });
+}
+catch(err){
+res.status(500);
+res.send(`{"error": ${err}}`);
+}
+};
