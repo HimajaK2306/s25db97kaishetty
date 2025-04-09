@@ -14,7 +14,7 @@ router.delete('/quarries/:id', quarries_controller.quarries_delete);
 // PUT request to update Costume.
 router.put('/quarries/:id', quarries_controller.quarries_update_put);
 // GET request for one Costume.
-router.get('/quarries/:id', quarries_controller.quarries_detail);
+router.get('/quarries/:id', quarries_controller.quarries_list_detail);
 // GET request for list of all Costume items.
 router.get('/quarries', quarries_controller.quarries_list);
 module.exports = router;

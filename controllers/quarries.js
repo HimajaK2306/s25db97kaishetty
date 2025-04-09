@@ -3,6 +3,16 @@ var quarries = require('../models/quarries');
 exports.quarries_list = function(req, res) {
 res.send('NOT IMPLEMENTED: quarries list');
 };
+exports.quarries_list = async function(req, res) {
+    try{
+    thequarries = await quarries.find();
+    res.send(thequarries);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
 // for a specific Costume.
 exports.quarries_list_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: quarries detail: ' + req.params.id);
