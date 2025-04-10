@@ -69,6 +69,7 @@ app.use('/grid', gridRouter);
 app.use('/pick', pickRouter);
 app.use('/resource', resourceRouter);
 
+
 app.get('/gridbuild', function(req, res) {
   let query = req.query;
 
