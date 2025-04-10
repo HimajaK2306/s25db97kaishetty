@@ -63,7 +63,7 @@ res.send(`{"error": ${err}}`);
 }
 };
 // GET request for one costume.
-router.get('/quarries/:id', quarries_controller.quarries_detail);
+
 // for a specific Costume.
 exports.quarries_detail = async function(req, res) {
 console.log("detail" + req.params.id)
