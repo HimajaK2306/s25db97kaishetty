@@ -13,6 +13,8 @@ var router = express.Router();
 /* GET costumes */
 router.get('/', quarries_controllers.quarries_view_all_Page );
 router.get('/quarries/:id', quarries_controllers.quarries_list_detail);
+router.put('/quarries/:id', quarries_controllers.quarries_update_put);
+
 module.exports = router;
 
 
