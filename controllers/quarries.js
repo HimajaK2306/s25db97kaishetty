@@ -72,6 +72,6 @@ result = await quarries.findById( req.params.id)
 res.send(result)
 } catch (error) {
 res.status(500)
-res.send(`{"error": document for id ${req.params.id} not found}`);
+res.send(`{"error": document for id ${req.params.id} not found`);
 }
 };
