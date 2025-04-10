@@ -12,7 +12,7 @@ const quarries_controllers= require('../controllers/quarries');
 var router = express.Router();
 /* GET costumes */
 router.get('/', quarries_controllers.quarries_view_all_Page );
-router.get('/quarries/:id', quarries_controllers.quarries_detail);
+router.get('/quarries/:id', quarries_controllers.quarries_list_detail);
 module.exports = router;
 
 
