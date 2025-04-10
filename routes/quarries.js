@@ -7,10 +7,12 @@ router.get('/', function(req, res, next) {
 });
 
 
-var express = require('express');
-const quarries_controlers= require('../controllers/quarries');
+// var express = require('express');
+const quarries_controllers= require('../controllers/quarries');
 var router = express.Router();
 /* GET costumes */
-router.get('/', quarries_controlers.quarries_view_all_Page );
+router.get('/', quarries_controllers.quarries_view_all_Page );
 module.exports = router;
+
+
 module.exports = router;

@@ -2,23 +2,13 @@ extends layout
 
 block content
   h1= title
-  - let items = results;
+  - let items = results
   p Below are some quarry search results:
-
-  
-  -
-    let results = [
-      { name: "Granite Hills", depth_meters: 50, material: "Granite" },
-      { name: "Limestone Cove", depth_meters: 30, material: "Limestone" },
-      { name: "Marble Valley", depth_meters: 45, material: "Marble" }
-    ];
-
-  
   .container-fluid
     .row
-      each quarry in results
+      each quarry in items
         .col-sm-3.border.p-2
-          h3 #{quarry.name}
+          h3 Name: #{quarry.quarries_type}
           p Depth: #{quarry.depth_meters} meters
           p Material: #{quarry.material}
 

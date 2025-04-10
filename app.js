@@ -34,7 +34,7 @@ async function recreateDB(){
 // Delete everything
 await quarries.deleteMany();
 let instance1 = new
-quarries({name:"Granite Hills", depth_meters:'50',
+quarries({quarries_type:"Granite Hills", depth_meters:'50',
 material:"Granite"});
 instance1.save().then(doc=>{
 console.log("First object saved")}
@@ -42,7 +42,7 @@ console.log("First object saved")}
 console.error(err)
 });
 let instance2 = new
-quarries({name:"Limestone Cove", depth_meters:'30',
+quarries({quarries_type:"Limestone Cove", depth_meters:'30',
 material:"Limestone"});
 instance2.save().then(doc=>{
 console.log("Second object saved")}
@@ -51,7 +51,7 @@ console.error(err)
 });
 
 let instance3 = new
-quarries({name:"Marble Valley", depth_meters:'45',
+quarries({quarries_type:"Marble Valley", depth_meters:'45',
 material:"Marble"});
 instance3.save().then(doc=>{
 console.log("Third object saved")}
