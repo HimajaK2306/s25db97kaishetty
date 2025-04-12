@@ -62,7 +62,19 @@ res.status(500);
 res.send(`{"error": ${err}}`);
 }
 };
-// GET request for one costume.
+// Handle Costume delete on DELETE.
+exports.quarries_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await quarries.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+    };
+    
 
 // for a specific Costume.
 exports.quarries_list_detail = async function(req, res) {
