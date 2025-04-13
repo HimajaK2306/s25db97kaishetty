@@ -78,16 +78,19 @@ exports.quarries_delete = async function(req, res) {
 // Handle a show one view with id specified by query
 exports.quarries_view_one_Page = async function(req, res) {
     console.log("single view for id " + req.query.id)
-    try{
-    result = await quarries.findById( req.query.id)
-    res.render('quarriesdetail',
-    { title: 'quarries Detail', toShow: result });
+    try {
+        let result = await quarries.findById(req.query.id);
+        if (!result) {
+            res.status(404).send("No quarry found with this ID");
+            return;
+        }
+        res.render('quarriesdetail', { title: 'Quarry Detail', toShow: result });
+    } catch (err) {
+        res.status(500);
+        res.send(`{'error': '${err}'}`);
     }
-    catch(err){
-    res.status(500)
-    res.send(`{'error': '${err}'}`);
-    }
-    };
+};
+
 // Handle building the view for creating a costume.
 // No body, no in path parameter, no query.
 // Does not need to be async
@@ -105,16 +108,20 @@ exports.quarries_create_Page = function(req, res) {
 // Handle building the view for updating a costume.
 // query provides the id
 exports.quarries_update_Page = async function(req, res) {
-    console.log("update view for item "+req.query.id)
-    try{
-    let result = await quarries.findById(req.query.id)
-    res.render('quarriesupdate', { title: 'quarries Update', toShow: result });
+    console.log("update view for item " + req.query.id);
+    try {
+        let result = await quarries.findById(req.query.id);
+        if (!result) {
+            res.status(404).send("No quarry found with this ID to update");
+            return;
+        }
+        res.render('quarriesupdate', { title: 'Quarry Update', toShow: result });
+    } catch (err) {
+        res.status(500);
+        res.send(`{'error': '${err}'}`);
     }
-    catch(err){
-    res.status(500)
-    res.send(`{'error': '${err}'}`);
-    }
-    };
+};
+
     
 // Handle a delete one view with id from query 
 exports.quarries_delete_Page = async function(req, res) {
