@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  h1= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let quarriesid = toShow._id
+    - let quarries_type = toShow.quarries_type
+    - let depth_meters = toShow.depth_meters
+    - let material = toShow.material
+    - let actionid = "/resource/quarries/" + quarriesid
+    script let actionid = "#{actionid}"
+
+    div
+      div.row
+        div(class='quarriesAttr mr-3') quarries ID is:
+        div #{quarriesid}
+      div.row
+        div(class='quarriesAttr mr-3') quarries type is:
+        div #{quarries_type}
+      div.row
+        div(class='quarriesAttr mr-3') quarries depth_meters is:
+        div #{depth_meters}
+      div.row
+        div(class='quarriesAttr mr-3') quarries material is:
+        div #{material}
+
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+      window.location.href='/quarries'
+    }
+
+  script.
+    function deleteOnid() {
+      console.log("starting delete")
+      fetch(actionid, {
+        method: 'DELETE'
+      }).then((resp) => {
+        return resp.json();
+      }).then((body) => {
+        alert("Delete succeeded")
+        window.location.href='/quarries'
+      }).catch((error) => {
+        alert("Delete failed " + error)
+      });
+    }
