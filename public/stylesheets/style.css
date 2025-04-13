@@ -20,7 +20,7 @@ a {
 }
 
 .quarriesAttr:hover {
-  background-color: #b7e5a0; /* deeper green on hover */
+  background-color: #f90b0b; /* deeper green on hover */
   color: #930feb; /* darker text on hover */
   cursor: pointer;
   transform: translateY(-2px);
