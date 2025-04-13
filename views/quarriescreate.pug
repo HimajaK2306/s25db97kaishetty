@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+  form(id='quarriesForm', action="/resource/quarries", method="POST")
+    div.form-group
+      label.quarriesAttr(for='quarries_type') quarries type
+      input#quarries_type(type='text', name='quarries_type')
+    
+    div.form-group
+      label.quarriesAttr(for='depth_meters') quarries depth_meters
+      input#depth_meters(type='number', name='depth_meters')
+    
+    div.form-group
+      label.quarriesAttr(for='material') quarries material
+      input#material(type='text', name='material')
+
+    input(type="submit")
+
+  script.
+    document.forms['quarriesForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO: Show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target))
+      }).then((resp) => {
+        return resp.json();
+      }).then((body) => {
+        alert("Save succeeded");
+        // TODO: handle response body
+      }).catch((error) => {
+        alert("Save failed " + error);
+        // TODO: handle error
+      });
+    });

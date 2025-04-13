@@ -16,6 +16,7 @@ router.get('/quarries/:id', quarries_controllers.quarries_list_detail);
 //router.get('/quarries/:id', quarries_controllers.quarries_update_put);
 //router.delete('/quarries/:id', quarries_controller.quarries_delete);
 router.get('/detail', quarries_controllers.quarries_view_one_Page);
+router.get('/create', quarries_controllers.quarries_create_Page);
 
 module.exports = router;
 
