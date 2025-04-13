@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  - let quarriesid = toShow._id
+  - let quarries_type = toShow.quarries_type
+  - let quarriescost = toShow.cost
+  - let quarriessize = toShow.size
+
+  div
+    .row
+      .quarriesAttr.mr-3 quarries ID is:
+      div #{quarriesid}
+    .row
+      .quarriesAttr.mr-3 quarries Type is:
+      div #{quarries_type}
+    .row
+      .quarriesAttr.mr-3 quarries Size is:
+      div #{quarriessize}
+    .row
+      .quarriesAttr.mr-3 quarries Cost is:
+      div #{quarriescost}
