@@ -7,8 +7,8 @@ a {
   color: #00B7FF;
 }
 .quarriesAttr {
-  background-color: #d1f7c4; /* softer light green */
-  border-left: 5px solid #076edc; /* blue accent */
+  background-color: #d1f7c4; /* light green */
+  border-left: 5px solid #076edc;
   padding: 15px 20px;
   margin-bottom: 15px;
   border-radius: 12px;
@@ -16,14 +16,16 @@ a {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #2a2a2a;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .quarriesAttr:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-  background-color: #c6f1b8; /* slightly darker green on hover */
+  background-color: #b7e5a0; /* deeper green on hover */
+  color: #044a1c; /* darker text on hover */
   cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
+
 
   
