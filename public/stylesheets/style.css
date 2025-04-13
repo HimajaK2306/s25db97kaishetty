@@ -7,13 +7,7 @@ a {
   color: #00B7FF;
 }
 .quarriesAttr {
-  background-color: #b7f00a; /* soft light blue */
-    border-left: 5px solid #047cfc; /* blue accent */
-    padding: 10px 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+  background-color: aquamarine;
+  width: 120px;
   }
   
