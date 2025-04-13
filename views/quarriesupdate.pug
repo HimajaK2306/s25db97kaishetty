@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  h1= title
+
+  - let quarriesid = toShow._id
+  - let quarries_type = toShow.quarries_type
+  - let depth_meters = toShow.depth_meters
+  - let material = toShow.material
+
+  div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{quarriesid}
+
+  - let actionid = "/resource/quarries/" + quarriesid
+
+  form(id='quarriesForm', action=actionid, method="PUT")
+    div.form-group
+      label.quarriesAttr(for='quarries_type') quarries type
+      input#quarries_type(type='text', name='quarries_type', value=quarries_type)
+
+    div.form-group
+      label.quarriesAttr(for='depth_meters') quarries depth_meters
+      input#depth_meters(type='number', name='depth_meters', value=depth_meters)
+
+    div.form-group
+      label.quarriesAttr(for='material') material
+      input#material(type='text', name='material', value=material)
+
+    input(type="submit")
+
+  script.
+    document.forms['quarriesForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO: show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'PUT',
+        body: new URLSearchParams(new FormData(event.target))
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Update succeeded");
+        // TODO: handle body
+      }).catch((error) => {
+        alert("Update failed " + error);
+        // TODO: handle error
+      });
+    });

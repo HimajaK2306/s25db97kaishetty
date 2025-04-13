@@ -102,6 +102,23 @@ exports.quarries_create_Page = function(req, res) {
     }
     };
     
+// Handle building the view for updating a costume.
+// query provides the id
+exports.quarries_update_Page = async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+    let result = await quarries.findById(req.query.id)
+    res.render('quarriesupdate', { title: 'quarries Update', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+    
+    
+
+
 
 // for a specific Costume.
 exports.quarries_list_detail = async function(req, res) {
