@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 require('dotenv').config();
-const connectionString = process.env.MONGO_CON
+const connectionString = process.env.MONGO_CONN
 mongoose = require('mongoose');
 mongoose.connect(connectionString);
 
