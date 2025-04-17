@@ -4,6 +4,7 @@ block content
   h1= title
   - let items = results
   p Below are some quarry search results:
+
   .container-fluid
     .row
       each quarry in items
@@ -11,7 +12,14 @@ block content
           h3 Name: #{quarry.quarries_type}
           p Depth: #{quarry.depth_meters} meters
           p Material: #{quarry.material}
+          button.btn.btn-primary.mt-2(
+            onclick=`dispatch('/quarries/update?id=${quarry._id}')`
+          ) Update
 
-  
+  script.
+    function dispatch(path) {
+      window.location.href = path;
+    }
+
   p
     a(href="/") Back to Home
