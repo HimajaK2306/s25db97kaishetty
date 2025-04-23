@@ -5,6 +5,9 @@ block content
   - let items = results
   p Below are some quarry search results:
 
+  // 🔹 Create New Quarry Button
+  a.btn.btn-success.mb-3(href="/quarries/create") + Create New Quarry
+
   .container-fluid
     .row
       each quarry in items
@@ -12,9 +15,21 @@ block content
           h3 Name: #{quarry.quarries_type}
           p Depth: #{quarry.depth_meters} meters
           p Material: #{quarry.material}
+
+          // 🔸 Update Button (already working)
           button.btn.btn-primary.mt-2(
             onclick=`dispatch('/quarries/update?id=${quarry._id}')`
           ) Update
+
+          // 🔸 View/Detail Button (fix: add /detail)
+          button.btn.btn-info.mt-2.ms-2(
+            onclick=`dispatch('/quarries/detail?id=${quarry._id}')`
+          ) Detail View
+
+          // 🔸 Delete Button (fix: add /delete)
+          button.btn.btn-danger.mt-2.ms-2(
+            onclick=`dispatch('/quarries/delete?id=${quarry._id}')`
+          ) Delete
 
   script.
     function dispatch(path) {

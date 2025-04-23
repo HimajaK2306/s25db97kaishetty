@@ -1,22 +1,41 @@
 extends layout
 
 block content
-  h1= title
-  p I'm Himaja Kaishetty and this is my Assignment 10
+  .container
+    h1= title
+    p I'm Himaja Kaishetty and this is my Assignment 10
 
-  button(type="button" class="btn btn-secondary" onclick="faster()") Press me
+    button.btn.btn-secondary(type="button", onclick="faster()") Press me
 
-  div#faster Add in extra
+    div#faster Add in extra
 
-  script.
-    let value = 1;
-    let amt = 2;
+    script.
+      let value = 1;
+      let amt = 2;
 
-    function faster() {
-      amt *= 2;
-      value += amt;
-      document.getElementById("faster").innerText = `Faster ${value} times ${amt}`;
-    }
+      function faster() {
+        amt *= 2;
+        value += amt;
+        document.getElementById("faster").innerText = `Faster ${value} times ${amt}`;
+      }
 
-  p
-    a(href="/quarries") View Quarry Search Results
+    p
+      a(href="/quarries") View Quarry Search Results
+
+    hr
+
+    h1 Welcome to the Home Page
+
+    if (!user)
+      p Please log in or register to access the site.
+      a.btn.btn-primary(href="/login") Login
+      br
+      br
+      a.btn.btn-success(href="/register") Register
+
+    if (user)
+      p You are currently logged in as #{user.username}.
+      a.btn.btn-info(href="/quarries") Browse Quarries
+      br
+      br
+      a.btn.btn-danger(href="/logout") Logout
